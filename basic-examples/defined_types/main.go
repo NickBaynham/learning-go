@@ -3,15 +3,18 @@ package main
 
 import (
 	"fmt"
+	"github.com/nickbaynham/fuelTypes"
 )
 
-type liters float64
-type gallons float64
-
 func main() {
-	var carFuel gallons
-	var busFuel liters
-	carFuel = gallons(10.00)
-	busFuel = liters(240.00)
+	carFuel := fuelTypes.Gallons(10.00)
+	busFuel := fuelTypes.Liters(240.00)
 	fmt.Println(carFuel, busFuel)
+	myFuel := carFuel.ToLiters(carFuel)
+	fmt.Println(myFuel)
+
+	// Using the FuelTypes defined types
+	car1 := fuelTypes.Gallons(10.00)
+	car2 := fuelTypes.Liters(240.00)
+	fmt.Println(car1.ToLiters(car1), car2.ToGallons(car2))
 }
